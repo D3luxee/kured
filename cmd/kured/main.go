@@ -288,8 +288,6 @@ func main() {
 	// These prevent the rebooter to reboot the node, it will still drain the node.
 	// This is useful for cases in which you want to wait for a condition that is only met after draining the node.
 	var inhibitingBlockCheckers []blockers.RebootBlocker
-	log.Info("Setup hardcoded cluster-autoscaler.kubernetes.io/scale-down-disabled node annotation blocker")
-	inhibitingBlockCheckers = append(inhibitingBlockCheckers, blockers.NewNodeBlockingChecker(client, nodeID, []string{"cluster-autoscaler.kubernetes.io/scale-down-disabled"}))
 	if blockingNodeAnnotations != nil {
 		log.Info("Setup rebooter blocker for node annotations")
 		inhibitingBlockCheckers = append(inhibitingBlockCheckers, blockers.NewNodeBlockingChecker(client, nodeID, inhibitingNodeAnnotations))
