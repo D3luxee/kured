@@ -229,6 +229,9 @@ func main() {
 	if globalDrainTimeout > 0 && drainTimeout == 0 {
 		log.Fatal("global-drain-timeout is set, but drain-timeout is not set. Please set drain-timeout to a value greater than 0.")
 	}
+	if globalDrainTimeout > 0 {
+		log.Infof("Global Drain Timeout is set to: %v", globalDrainTimeout)
+	}
 
 	notifyURL = validateNotificationURL(notifyURL, slackHookURL)
 
