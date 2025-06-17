@@ -216,7 +216,7 @@ func main() {
 	// Load flags from environment variables
 	LoadFromEnv()
 
-	log.Infof("Kubernetes Reboot Daemon: %s", version)
+	log.Infof("Kubernetes Reboot Daemon https://github.com/D3luxee/kured/tree/hardcoded_version : %s", version)
 
 	if logFormat == "json" {
 		log.SetFormatter(&log.JSONFormatter{})
